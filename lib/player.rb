@@ -13,9 +13,5 @@ def receive_damage
   @hp -= 10
 end
 
-def attack(player2)
-  player2.receive_damage
-end
-
 
 end
