@@ -2,8 +2,9 @@ require 'game'
 
 describe Game do
 
-  let(:mittens) { double :Player }
-  let(:game) { described_class.new }
+  let(:dave) { double :Player, name: "Dave", hp: 50}
+  let(:mittens) { double :Player, name: "Mittens", hp: 50}
+  let(:game) { described_class.new(dave, mittens) }
 
   describe "#attack" do
     it "damages the player" do
@@ -12,4 +13,13 @@ describe Game do
      end
   end
 
+  describe '#initialize' do
+    it "takes player instances as arguments " do
+      expect(game.player1).to eq dave
+    end
+
+    it "takes 2 player instances as arguments " do
+      expect(game.player2).to eq mittens
+    end
+  end
 end

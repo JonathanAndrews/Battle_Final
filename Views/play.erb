@@ -1,7 +1,7 @@
 <h2>BATTLE TIME!!!!</h2>
-<%= @player_1_name %> vs. <%= @player_2_name %><br><br>
-<%= @player_1_name %> :50HP<br>
-<%= @player_2_name %> :50HP<br><br>
+<%= @game.player1.name %> vs. <%= @game.player2.name %><br><br>
+<%= @game.player1.name %> :50HP<br>
+<%= @game.player2.name %> :50HP<br><br>
 
 <form action="/attack" method="post">
 <input type="submit" name="Attack" value="Attack">
