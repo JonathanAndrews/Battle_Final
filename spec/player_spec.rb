@@ -2,19 +2,32 @@ require 'player'
 
 describe Player do
 
-  subject { described_class.new("Dave", 50) }
-  # subject { described_class.new("Mittens") }
+  subject(:dave) { described_class.new("Dave") }
+  subject(:mittens) { described_class.new("Mittens") }
 
+describe "#name" do
   it "should give a player a name" do
-    expect(subject.name).to eq "Dave"
+    expect(dave.name).to eq "Dave"
   end
+end
 
+describe "#HP" do
   it "should give a player HP" do
-    expect(subject.hp).to eq 50
+    expect(dave.hp).to eq Player::DEFAULT_HIT_POINTS
   end
+end
 
+describe "#attack" do
+  it "damages the player" do
+     expect(mittens).to receive(:receive_damage)
+     dave.attack(mittens)
+   end
+end
+
+describe "#receive_damage" do
   it "reduces the hp's by 10" do
-    expect{subject.attack}.to change{subject.hp}.by -10
+    expect{mittens.receive_damage}.to change{mittens.hp}.by -10
   end
+end
 
 end
