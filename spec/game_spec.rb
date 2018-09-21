@@ -6,13 +6,6 @@ describe Game do
   let(:mittens) { double :Player, name: "Mittens", hp: 50}
   let(:game) { described_class.new(dave, mittens) }
 
-  describe "#attack" do
-    it "damages the player" do
-       expect(mittens).to receive(:receive_damage)
-       game.attack(mittens)
-     end
-  end
-
   describe '#initialize' do
     it "takes player instances as arguments " do
       expect(game.player1).to eq dave

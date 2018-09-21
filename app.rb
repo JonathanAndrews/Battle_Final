@@ -25,7 +25,7 @@ end
 
   get '/attack' do
     @game = $game
-    @game.attack(@game.opponent_of(@game.current_turn))
+    Attack.run(@game.opponent_of(@game.current_turn))
     erb :attack
   end
 
