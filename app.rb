@@ -23,11 +23,16 @@ enable :sessions
   erb :play
 end
 
-  post '/attack' do
-  @game = $game
-  @game.attack(@game.player2)
+  get '/attack' do
+    @game = $game
+    @game.attack(@game.opponent_of(@game.current_turn))
+    erb :attack
+  end
 
-  erb :attack
+  post '/switch_turns' do
+    @game = $game
+    @game.switch_turns
+    erb :play
   end
 
 

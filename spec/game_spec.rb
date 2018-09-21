@@ -22,4 +22,11 @@ describe Game do
       expect(game.player2).to eq mittens
     end
   end
+
+  describe "#switch_turns" do
+    it "changes who's turns it is" do
+      game.switch_turns
+      expect(game.current_turn).to eq mittens
+    end
+  end
 end
